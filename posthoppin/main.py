@@ -1,7 +1,8 @@
 import typer
+from view import View
 
 def main():
-    print("hello world!")
-
+    myView = View()
+    myView.fileInput()
 if __name__ == '__main__':
     typer.run(main)

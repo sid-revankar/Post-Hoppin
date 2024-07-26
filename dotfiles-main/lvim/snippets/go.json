@@ -1,0 +1,17 @@
+{
+  "go-starter": {
+    "prefix": "gomain",
+    "body": [
+      "package main",
+      "",
+      "import (",
+      "\t\"fmt\"",
+      ")",
+      "",
+      "func main() {",
+      "\tfmt.Println($0)",
+      "}"
+    ],
+    "description": "Main function"
+  }
+}
