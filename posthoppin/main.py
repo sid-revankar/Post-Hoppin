@@ -1,31 +1,31 @@
 import typer
-from typing import Optional
+import os
+import shutil
+from models import File_Handling
+import time
 
-from posthoppin import __app_name__, __version__
+def main():
+    path = input("Enter the path: ")
+    file_handle = File_Handling(path)
 
-app = typer.Typer()
+    avg_time = 0.0
+    for _ in range(10):
+        if os.path.exists("/home/fastaf/cli project/posthoppin/.config"):
+            shutil.rmtree(
+                "/home/fastaf/cli project/posthoppin/.config", ignore_errors=True
+            )
 
-def version_callback(value: bool) -> None:
-    if value:
-        app_name_version = {
-            "name": typer.style(__app_name__,fg=typer.colors.BRIGHT_YELLOW),
-            "version": typer.style(__version__,fg=typer.colors.BRIGHT_GREEN),
-        }
-        typer.echo(f"{app_name_version['name']} {app_name_version['version']}")
-        raise typer.Exit()
+    start_time = time.time()
+    folder_path = file_handle.get_path()
+    path_list = file_handle.dir_sort(folder_path)
 
-@app.callback()
-def main(
-    version: Optional[bool] = typer.Option(
-        None,
-        "--version",
-        "-v",
-        help="Show the application's name and version then exit.",
-        callback=version_callback,
-        is_eager=True,
-    )
-) -> None:
-    return
+    File_Handling.dir_keyValuePair = file_handle.passTree(path_list)
 
-if __name__ == '__main__':
+    end_time = time.time() - start_time
+    avg_time += end_time
+
+
+    print(f"execution compelete: {(avg_time*1000)/10:.2f}'s ")
+
+if __name__ == "__main__":
     typer.run(main)
