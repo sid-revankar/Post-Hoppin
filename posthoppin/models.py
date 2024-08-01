@@ -17,17 +17,19 @@ class FileHandling:
 
         folders = os.scandir(self.f_path)
         for entry in folders:
-            if entry.is_dir():
-                root_dir.append(entry)
+            root_dir.append(entry)
         return root_dir
 
-    def putFiles(self, list_dir):
-        self.list_dir = list_dir
-        for key in self.list_dir:
-            src = r"{}".format(Path(key))
-            cur_dir = os.path.basename(src)
-            dest = os.environ['HOME']
-            if os.path.exists():
-                pass
+    def putFiles(self, root_dir):
+        self.root_dir = root_dir
+        dest = Path('G:/Projects/Post-Hoppin/posthoppin/config')
+        dest.mkdir(exist_ok=True)
+        for key in self.root_dir:
+            # src = Path(key)
+            if os.path.isdir(key):
+                if key.name == ".git":
+                    print(".git already exists!")
+                else:
+                    shutil.copytree(key, dest.joinpath(key.name), dirs_exist_ok=True)
             else:
-                shutil.copytree(src, dest + cur_dir)
+                shutil.copyfile(key, dest)
