@@ -1,31 +1,15 @@
 import typer
-import os
-import shutil
-from models import File_Handling
-import time
+from models import FileHandling
 
 def main():
     path = input("Enter the path: ")
-    file_handle = File_Handling(path)
+    file_handle = FileHandling(path)
+    
+    folders_path = file_handle.getPath()
+    path_dir_list = file_handle.getSubDir(folders_path)
+    path_file_list = file_handle.getSubDir_file(folders_path)
 
-    avg_time = 0.0
-    for _ in range(10):
-        if os.path.exists("/home/fastaf/cli project/posthoppin/.config"):
-            shutil.rmtree(
-                "/home/fastaf/cli project/posthoppin/.config", ignore_errors=True
-            )
-
-    start_time = time.time()
-    folder_path = file_handle.get_path()
-    path_list = file_handle.dir_sort(folder_path)
-
-    File_Handling.dir_keyValuePair = file_handle.passTree(path_list)
-
-    end_time = time.time() - start_time
-    avg_time += end_time
-
-
-    print(f"execution compelete: {(avg_time*1000)/10:.2f}'s ")
+    file_handle.putFiles(path_dir_list,path_file_list)
 
 if __name__ == "__main__":
     typer.run(main)

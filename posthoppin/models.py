@@ -1,33 +1,77 @@
 import os
 import shutil
 from pathlib import Path
+import config
 
-class File_Handling:
-    def __init__(self, filepath):
-        self.filepath = filepath
+# File Handling: takes path input to copy dotFiles into .config directory
+class FileHandling:
+    def __init__(self, path):
+        self.path = path
 
-    def get_path(self):
-        f_path = Path(self.filepath)
+    def getPath(self):
+        f_path = Path(self.path)
         return f_path
-
-    def dir_sort(self, f_path):
-        main_dir = []
+    
+    # list of directories
+    def getSubDir(self, f_path):
+        root_dir = []
         self.f_path = f_path
-
-        folder = os.scandir(self.f_path)
-        for entry in folder:
-            if entry.is_dir():  # and not entry.is_file():
-                main_dir.append(entry)
-        return main_dir
-
-    def passTree(self, list_dir):
-        self.list_dir = list_dir
-        for key in self.list_dir:
-            src = r"{}".format(Path(key))
-            cur_dir = os.path.basename(src)
-            dest = r"/home/fastaf/cli project/posthoppin/.config/"
-            if os.path.exists(dest):
+        folders = os.scandir(self.f_path)
+        for entry in folders:
+            if entry.is_dir():
+                root_dir.append(entry)
+        return root_dir
+    
+    # list of files without directory 
+    def getSubDir_file(self, f_path):
+        root_dir_file = []
+        self.f_path = f_path
+        folders = os.scandir(self.f_path)
+        for entry in folders:
+            if entry.is_file():
+                root_dir_file.append(entry)
+        return root_dir_file
+    
+    #  puts file into .config
+    def putFiles(self, src_dir_list,src_file_list): # input: 2 list containing src directory and files
+        self.src_dir_list = src_dir_list
+        self.src_file_list = src_file_list
+        dest = Path(os.environ['HOME'] + "/.config")
+        git_found = False
+        
+        # if !destination then it will create the directoy 
+        if os.path.exists(dest):
                 pass
-            else:
-                shutil.copytree(src, dest + cur_dir)
-
+        else:
+            os.mkdir(dest)
+            
+        try:
+            # copies entire directory 
+            for key_dir in self.src_dir_list:
+                src = r"{}".format(Path(key_dir))
+                base_dir = os.path.basename(src)
+                dest_subdir = dest.joinpath(base_dir)
+                if key_dir:
+                    if os.path.exists(config.GITPATH) and key_dir.name == config.GIT_DIR: # if .git exists skip and continue
+                        git_found = True  # noqa: F841
+                        print(f"Git directory found!, skipping >> {key_dir.name}")
+                        continue
+                    else:
+                        shutil.copytree(src,dest_subdir, dirs_exist_ok=True)
+                        
+            # copies files       
+            for key_file in self.src_file_list:
+                src = r"{}".format(Path(key_file))
+                if key_file:
+                    shutil.copyfile(src, dest.joinpath(key_file.name))
+                    
+        except Exception as e:
+<<<<<<< HEAD
+            return print(f"Something went wrong!, error: {e}")
+            
+                
+            
+        
+=======
+            return print(f"Something went wrong!, error: {e}")
+>>>>>>> c76c2eb (Code Refactor)
