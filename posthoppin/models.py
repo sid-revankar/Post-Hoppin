@@ -66,8 +66,12 @@ class FileHandling:
                     shutil.copyfile(src, dest.joinpath(key_file.name))
                     
         except Exception as e:
+<<<<<<< HEAD
             return print(f"Something went wrong!, error: {e}")
             
                 
             
         
+=======
+            return print(f"Something went wrong!, error: {e}")
+>>>>>>> c76c2eb (Code Refactor)
