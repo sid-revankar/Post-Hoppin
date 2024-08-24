@@ -1,5 +1,5 @@
 # Post-Hoppin
-<h1 align="center" id="title"><span style="color:red">CLI Application for Automated Configuration Setup</span></h1>
+<h1 align="center" id="title">![Red Text]CLI Application for Automated Configuration Setup</h1>
 
 <p id="description">Welcome to the CLI Application for Automated Configuration Setup! This project is designed to streamline the process of setting up configuration files themes and wallpapers for Linux users. With this tool you can easily manage your dotfiles themes and wallpapers in your .config directory making it simpler to customize your Linux environment.</p>
 
