@@ -12,7 +12,6 @@ Here're some of the project's best features:
 *   Automated Setup: Quickly set up configuration files themes and wallpapers with minimal effort.
 *   User-Friendly Interface: Intuitive CLI interface that guides you through the configuration process.
 *   Dotfile Management: Easily add update and manage your dotfiles in the .config directory.
-*   Theme Integration: Seamlessly apply and switch between different themes.
 *   Wallpaper Configuration: Automatically set and change wallpapers according to your preferences.
 *   Time-Saving: Reduces manual work by automating repetitive tasks.
 
