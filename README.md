@@ -1,18 +1,43 @@
 # Post-Hoppin
-CLI Application for Automated Configuration Setup 
+<h1 align="center" id="title"><span style="color:#4dbeff">CLI Application for Automated Configuration Setup</span></h1>
 
-Welcome to the CLI Application for Automated Configuration Setup! This project is designed to streamline the process of setting up configuration files, themes, and wallpapers for Linux users. With this tool, you can easily manage your dotfiles, themes, and wallpapers in your .config directory, making it simpler to customize your Linux environment. 
+<p id="description">Welcome to the CLI Application for Automated Configuration Setup! This project is designed to streamline the process of setting up configuration files themes and wallpapers for Linux users. With this tool you can easily manage your dotfiles themes and wallpapers in your .config directory making it simpler to customize your Linux environment.</p>
 
-Features 
+  
+  
+<h2>🧐 Features</h2>
 
-Automated Setup: Quickly set up configuration files, themes, and wallpapers with minimal effort. 
+Here're some of the project's best features:
 
-User-Friendly Interface: Intuitive CLI interface that guides you through the configuration process. 
+*   Automated Setup: Quickly set up configuration files themes and wallpapers with minimal effort.
+*   User-Friendly Interface: Intuitive CLI interface that guides you through the configuration process.
+*   Dotfile Management: Easily add update and manage your dotfiles in the .config directory.
+*   Theme Integration: Seamlessly apply and switch between different themes.
+*   Wallpaper Configuration: Automatically set and change wallpapers according to your preferences.
+*   Time-Saving: Reduces manual work by automating repetitive tasks.
 
-Dotfile Management: Easily add, update, and manage your dotfiles in the .config directory. 
+<h2>🛠️ Installation Steps:</h2>
 
-Theme Integration: Seamlessly apply and switch between different themes. 
+<p>1. Clone the repository:</p>
 
-Wallpaper Configuration: Automatically set and change wallpapers according to your preferences. 
+```
+https://github.com/sid-revankar/Post-Hoppin.git
+```
 
-Time-Saving: Reduces manual work by automating repetitive tasks. 
+<p>2. Navigate to the project directory:</p>
+
+```
+cd posthoppin
+```
+
+<p>3. Install the required dependencies:</p>
+
+```
+pip install -r requirements.txt
+```
+
+<p>4. Once installed you can start using the CLI application to automate your configuration setup:</p>
+
+```
+python main.py --help
+```
