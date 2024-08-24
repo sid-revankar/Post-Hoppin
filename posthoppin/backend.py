@@ -2,9 +2,21 @@ import os
 import shutil
 from pathlib import Path
 import config
+from rich.console import Console
+from rich.theme import Theme
 
+themes = Theme(
+    {
+            "info": "dim cyan",
+            "warning": "yellow",
+            "Alert": "bold red",
+            "Highlight": "#7FFFD4",
+    }
+)
+console = Console(theme=themes)
 # File Handling: takes path input to copy dotFiles into .config directory
 class FileHandling:
+    
     def __init__(self, path):
         self.path = path
 
@@ -37,7 +49,6 @@ class FileHandling:
         self.src_dir_list = src_dir_list
         self.src_file_list = src_file_list
         dest = Path(os.environ['HOME'] + "/.config")
-        git_found = False
         
         # if !destination then it will create the directoy 
         if os.path.exists(dest):
@@ -52,9 +63,8 @@ class FileHandling:
                 base_dir = os.path.basename(src)
                 dest_subdir = dest.joinpath(base_dir)
                 if key_dir:
-                    if os.path.exists(config.GITPATH) and key_dir.name == config.GIT_DIR: # if .git exists skip and continue
-                        git_found = True  # noqa: F841
-                        print(f"Git directory found!, skipping >> {key_dir.name}")
+                    if os.path.exists(config.GITPATH) and key_dir.name == config.GIT_DIR: # if .git exists skip and continue  
+                        console.print(f"Git directory found!, skipping >> {key_dir.name}",style="info")
                         continue
                     else:
                         shutil.copytree(src,dest_subdir, dirs_exist_ok=True)
@@ -66,12 +76,4 @@ class FileHandling:
                     shutil.copyfile(src, dest.joinpath(key_file.name))
                     
         except Exception as e:
-<<<<<<< HEAD
             return print(f"Something went wrong!, error: {e}")
-            
-                
-            
-        
-=======
-            return print(f"Something went wrong!, error: {e}")
->>>>>>> c76c2eb (Code Refactor)
