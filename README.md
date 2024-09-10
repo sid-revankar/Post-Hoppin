@@ -40,3 +40,59 @@ pip install -r requirements.txt
 ```
 python main.py --help
 ```
+## Usage
+
+Run Post-Hoppin by typing:
+```
+python main.py posthoppin
+
+```
+## Options:
+```
+--version or -v: Display the current version of Post-Hoppin
+--help: Show the help message and exit
+
+```
+## Commands:
+Copy entire dotfiles directory:
+```
+Select option 1 when prompted
+Enter the path to your dotfiles directory
+```
+
+Copy individual dotfiles:
+```
+Select option 2 when prompted
+Choose a file or directory from the displayed list
+```
+
+## Screenshots
+
+![App Screenshot](https://github.com/sid-revankar/Post-Hoppin/blob/main/Cli%20images/Screenshot%202024-09-11%20020314.png)
+
+![App Screenshot](https://github.com/sid-revankar/Post-Hoppin/blob/main/Cli%20images/Screenshot%202024-09-11%20020412.png)
+
+![App Screenshot](https://github.com/sid-revankar/Post-Hoppin/blob/main/Cli%20images/Screenshot%202024-09-11%20021724.png)
+
+![App Screenshot](https://github.com/sid-revankar/Post-Hoppin/blob/main/Cli%20images/Screenshot%202024-09-11%20021812.png)
+## Tech Stack
+
+**Programming Language:** Python 3
+
+**Core Libraries:** Typer, Rich, Pathlib
+
+**Utility Libraries:** Os, Shutil
+
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
+[MIT](https://choosealicense.com/licenses/mit/)
+
+
+## 🔗 Links
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sid-revankar/)
+
+
+## Authors
+
+- [@sid-revankar](https://github.com/sid-revankar)
