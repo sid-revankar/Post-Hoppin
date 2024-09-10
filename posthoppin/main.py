@@ -75,7 +75,7 @@ def list_option():
                 )
 
                 if selection.lower() == "q":
-                    return None
+                    raise typer.Exit()
 
                 try:
                     index = int(selection) - 1
