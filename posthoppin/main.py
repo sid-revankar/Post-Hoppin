@@ -55,6 +55,7 @@ def list_option():
     home = Path(os.environ["HOME"], "cli project")
     if home.is_dir():
         dotfiles_path = home / "dotfiles"
+    
         if dotfiles_path.is_dir():
             entries = list(os.scandir(dotfiles_path))
 
