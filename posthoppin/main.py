@@ -101,8 +101,6 @@ def main(
     ),
 ):
     """
-    Main function for the Post-Hoppin CLI.
-
     Run by typing 'posthoppin'.
     """
     try:
