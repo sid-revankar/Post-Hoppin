@@ -96,3 +96,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Authors
 
 - [@sid-revankar](https://github.com/sid-revankar)
+
+## Contributor
+
+- [@SpoodoW](https://github.com/SpoodoW)
